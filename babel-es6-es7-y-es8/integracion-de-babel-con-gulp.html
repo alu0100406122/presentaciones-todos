@@ -198,12 +198,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="operador-de-dispersion.html">
+        <li class="chapter " data-level="1.5.4" data-path="deconstrucciones.html">
             
-                <a href="operador-de-dispersion.html">
+                <a href="deconstrucciones.html">
             
                     
-                    4. Operador de Dispersión
+                    4. Deconstrucciones
             
                 </a>
             
@@ -211,12 +211,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="deconstrucciones.html">
+        <li class="chapter " data-level="1.5.5" data-path="operador-de-dispersion.html">
             
-                <a href="deconstrucciones.html">
+                <a href="operador-de-dispersion.html">
             
                     
-                    5. Deconstrucciones
+                    5. Operador de Dispersión
             
                 </a>
             
@@ -561,6 +561,17 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="12-integraci&#xF3;n-de-babel-con-gulp">12. Integraci&#xF3;n de Babel con Gulp</h1>
+<p>Podemos usar estas nuevas caracter&#xED;sticas en nuestro Gulpfile usando Babel. Para ello tenemos que reenombrar el gulpfile a <code>gulpfile.babel.js</code>. Con este nombre, Gulp se dar&#xE1; cuenta de que necesita transpilar el c&#xF3;digo antes de ejecutarlo.</p>
+<h2 id="creando-tareas">Creando tareas</h2>
+<p>Para crear una tarea, lo &#xFA;nico que tenemos que hacer es exportar una funci&#xF3;n con el nombre de la tarea, por ejemplo:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">import</span> { exec } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;child-process-promise&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dir</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log((<span class="hljs-keyword">await</span> exec(<span class="hljs-string">&apos;dir&apos;</span>)).stdout)
+}
+</code></pre>
+<p>Esto nos crear&#xE1; la tarea por defecto llamada <code>dir</code>. Si queremos exportar otras tareas, simplemente hacemos <code>export function &lt;nombretarea&gt;</code> o incluso <code>export const tarea = () =&gt; src(...).pipe(...)</code>.</p>
+<p><a href="https://gist.github.com/CodeTheory/cc7d79d1dad0622a9f9c" target="_blank">Ejemplo de un Gulpfile usando Babel</a></p>
 
                                 
                                 </section>
@@ -604,7 +615,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"12. Integración de Babel con Gulp","level":"1.5.12","depth":2,"next":{"title":"13. Integración con Express","level":"1.5.13","depth":2,"path":"babel-es6-es7-y-es8/integracion-con-express.md","ref":"babel-es6-es7-y-es8/integracion-con-express.md","articles":[]},"previous":{"title":"11. Async y Await","level":"1.5.11","depth":2,"path":"babel-es6-es7-y-es8/async-y-await.md","ref":"babel-es6-es7-y-es8/async-y-await.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","mtime":"2016-11-14T14:07:43.825Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T21:27:50.737Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"12. Integración de Babel con Gulp","level":"1.5.12","depth":2,"next":{"title":"13. Integración con Express","level":"1.5.13","depth":2,"path":"babel-es6-es7-y-es8/integracion-con-express.md","ref":"babel-es6-es7-y-es8/integracion-con-express.md","articles":[]},"previous":{"title":"11. Async y Await","level":"1.5.11","depth":2,"path":"babel-es6-es7-y-es8/async-y-await.md","ref":"babel-es6-es7-y-es8/async-y-await.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","mtime":"2016-11-15T14:01:00.738Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

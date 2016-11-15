@@ -198,12 +198,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="operador-de-dispersion.html">
+        <li class="chapter " data-level="1.5.4" data-path="deconstrucciones.html">
             
-                <a href="operador-de-dispersion.html">
+                <a href="deconstrucciones.html">
             
                     
-                    4. Operador de Dispersión
+                    4. Deconstrucciones
             
                 </a>
             
@@ -211,12 +211,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="deconstrucciones.html">
+        <li class="chapter " data-level="1.5.5" data-path="operador-de-dispersion.html">
             
-                <a href="deconstrucciones.html">
+                <a href="operador-de-dispersion.html">
             
                     
-                    5. Deconstrucciones
+                    5. Operador de Dispersión
             
                 </a>
             
@@ -561,6 +561,36 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="9-import">9. Import</h1>
+<p>Esta nueva palabra clave forma parte del est&#xE1;ndar, pero a&#xFA;n no ha sido implenetado por V8 de forma nativa.</p>
+<p>Import funciona en definitiva como un <code>require</code>, pero a bajo nivel cambia mucho respecto a <code>CommonJS</code>.</p>
+<h2 id="importar-una-variable">Importar una variable</h2>
+<p>Antes us&#xE1;bamos <code>require</code> para importar una variable:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">const</span> _ = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;lodash&apos;</span>)
+
+<span class="hljs-keyword">let</span> aux1 = _.tail([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-keyword">let</span> aux2 = _.concat([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+
+<span class="hljs-built_in">console</span>.log(aux1)
+<span class="hljs-built_in">console</span>.log(aux2)
+</code></pre>
+<p>Pero ahora con <code>import</code> tenemos una sintaxis m&#xE1;s clara:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;lodash&apos;</span>
+
+<span class="hljs-keyword">let</span> aux1 = _.tail([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-keyword">let</span> aux2 = _.concat([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+
+<span class="hljs-built_in">console</span>.log(aux1)
+<span class="hljs-built_in">console</span>.log(aux2)
+</code></pre>
+<p>Incluso, podemos combinarlo con el uso de las deconstrucciones:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">import</span> { tail, concat } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;lodash&apos;</span>
+
+<span class="hljs-keyword">let</span> aux1 = tail([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-keyword">let</span> aux2 = concat([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+
+<span class="hljs-built_in">console</span>.log(aux1)
+<span class="hljs-built_in">console</span>.log(aux2)
+</code></pre>
 
                                 
                                 </section>
@@ -604,7 +634,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9. Import","level":"1.5.9","depth":2,"next":{"title":"10. Export","level":"1.5.10","depth":2,"path":"babel-es6-es7-y-es8/export.md","ref":"babel-es6-es7-y-es8/export.md","articles":[]},"previous":{"title":"8. Operador bind","level":"1.5.8","depth":2,"path":"babel-es6-es7-y-es8/operador-bind.md","ref":"babel-es6-es7-y-es8/operador-bind.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/import.md","mtime":"2016-11-14T14:07:36.598Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T21:27:50.737Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9. Import","level":"1.5.9","depth":2,"next":{"title":"10. Export","level":"1.5.10","depth":2,"path":"babel-es6-es7-y-es8/export.md","ref":"babel-es6-es7-y-es8/export.md","articles":[]},"previous":{"title":"8. Operador bind","level":"1.5.8","depth":2,"path":"babel-es6-es7-y-es8/operador-bind.md","ref":"babel-es6-es7-y-es8/operador-bind.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/import.md","mtime":"2016-11-15T14:01:00.737Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -198,12 +198,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="operador-de-dispersion.html">
+        <li class="chapter " data-level="1.5.4" data-path="deconstrucciones.html">
             
-                <a href="operador-de-dispersion.html">
+                <a href="deconstrucciones.html">
             
                     
-                    4. Operador de Dispersión
+                    4. Deconstrucciones
             
                 </a>
             
@@ -211,12 +211,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="deconstrucciones.html">
+        <li class="chapter " data-level="1.5.5" data-path="operador-de-dispersion.html">
             
-                <a href="deconstrucciones.html">
+                <a href="operador-de-dispersion.html">
             
                     
-                    5. Deconstrucciones
+                    5. Operador de Dispersión
             
                 </a>
             
@@ -561,6 +561,61 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="8-operador-bind">8. Operador bind</h1>
+<p>El operador bind (<code>::</code>) es una nueva caracter&#xED;stica que est&#xE1; en Proposal, que nos permite vincular el entorno de una funci&#xF3;n a otra.</p>
+<p>B&#xE1;sicamente es az&#xFA;car sint&#xE1;tico para <code>.bind</code>:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+  <span class="hljs-keyword">constructor</span> () {
+    <span class="hljs-keyword">this</span>.text = <span class="hljs-string">&apos;Mi Texto&apos;</span>
+  }
+
+  getText () {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.text
+  }
+}
+
+<span class="hljs-keyword">let</span> test = <span class="hljs-keyword">new</span> Test()
+<span class="hljs-keyword">let</span> func = test.getText
+
+<span class="hljs-keyword">try</span> {
+  <span class="hljs-built_in">console</span>.log(func())
+} <span class="hljs-keyword">catch</span>(err) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error!&apos;</span>)
+}
+
+
+func = test.getText.bind(test)
+<span class="hljs-built_in">console</span>.log(func())
+</code></pre>
+<p>Para vincular el entorno, nombramos la instancia con el operador nuevo, seguido del m&#xE9;todo.</p>
+<pre><code class="lang-JavaScript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+  <span class="hljs-keyword">constructor</span> () {
+    <span class="hljs-keyword">this</span>.text = <span class="hljs-string">&apos;Mi Texto&apos;</span>
+  }
+
+  getText () {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.text
+  }
+}
+
+<span class="hljs-keyword">let</span> test = <span class="hljs-keyword">new</span> Test()
+<span class="hljs-keyword">const</span> func = test::test.getText
+<span class="hljs-built_in">console</span>.log(func())
+</code></pre>
+<p>Podemos resumir esto, ya que la instancia tambi&#xE9;n es el mismo objeto en el que se encuentra la funci&#xF3;n:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+  <span class="hljs-keyword">constructor</span> () {
+    <span class="hljs-keyword">this</span>.text = <span class="hljs-string">&apos;Mi Texto&apos;</span>
+  }
+
+  getText () {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.text
+  }
+}
+
+<span class="hljs-keyword">let</span> test = <span class="hljs-keyword">new</span> Test()
+<span class="hljs-keyword">const</span> func = ::test.getText
+<span class="hljs-built_in">console</span>.log(func())
+</code></pre>
 
                                 
                                 </section>
@@ -604,7 +659,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8. Operador bind","level":"1.5.8","depth":2,"next":{"title":"9. Import","level":"1.5.9","depth":2,"path":"babel-es6-es7-y-es8/import.md","ref":"babel-es6-es7-y-es8/import.md","articles":[]},"previous":{"title":"7. Nueva sintaxis en bucles for","level":"1.5.7","depth":2,"path":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","ref":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/operador-bind.md","mtime":"2016-11-14T14:07:57.290Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T21:27:50.737Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8. Operador bind","level":"1.5.8","depth":2,"next":{"title":"9. Import","level":"1.5.9","depth":2,"path":"babel-es6-es7-y-es8/import.md","ref":"babel-es6-es7-y-es8/import.md","articles":[]},"previous":{"title":"7. Nueva sintaxis en bucles for","level":"1.5.7","depth":2,"path":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","ref":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/operador-bind.md","mtime":"2016-11-15T14:01:00.741Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -198,12 +198,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="operador-de-dispersion.html">
+        <li class="chapter " data-level="1.5.4" data-path="deconstrucciones.html">
             
-                <a href="operador-de-dispersion.html">
+                <a href="deconstrucciones.html">
             
                     
-                    4. Operador de Dispersión
+                    4. Deconstrucciones
             
                 </a>
             
@@ -211,12 +211,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="deconstrucciones.html">
+        <li class="chapter " data-level="1.5.5" data-path="operador-de-dispersion.html">
             
-                <a href="deconstrucciones.html">
+                <a href="operador-de-dispersion.html">
             
                     
-                    5. Deconstrucciones
+                    5. Operador de Dispersión
             
                 </a>
             
@@ -561,6 +561,92 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="11-async-y-await">11. Async y Await</h1>
+<p>Esta nueva sintaxis, es una de las mejores novedades que se le est&#xE1;n a&#xF1;adiendo al lenguaje. Est&#xE1; inspirado en <a href="https://www.typescriptlang.org/docs/release-notes/typescript-1.7.html" target="_blank">TypeScript</a> el leguaje de Microsoft.</p>
+<h2 id="c&#xF3;digo-de-ejemplo">C&#xF3;digo de ejemplo</h2>
+<p>Como ejemplo, vamos leer el <code>README.md</code>, copiarlo en dos ficheros <code>borrame1.md</code> y <code>borrame2.md</code> y luego eliminarlos. Al finalizar imprimimos &quot;Hecho&quot;.</p>
+<h2 id="usando-callbacks">Usando callbacks</h2>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>)
+
+fs.readFile(<span class="hljs-string">&apos;README.md&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+  fs.writeFile(<span class="hljs-string">&apos;borrame1.md&apos;</span>, data, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    fs.writeFile(<span class="hljs-string">&apos;borrame2.md&apos;</span>, data, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      fs.unlink(<span class="hljs-string">&apos;borrame1.md&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        fs.unlink(<span class="hljs-string">&apos;borrame2.md&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Hecho&apos;</span>)
+        })
+      })
+    })
+  })
+})
+</code></pre>
+<p>Mediante el uso de callbacks, nos queda un c&#xF3;digo a muy anidado, o sea, un <a href="http://callbackhell.com" target="_blank">callback hell</a></p>
+<h2 id="usando-promesas">Usando promesas</h2>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs-promise&apos;</span>)
+
+fs.readFile(<span class="hljs-string">&apos;README.md&apos;</span>).then(data =&gt; {
+  <span class="hljs-keyword">let</span> promises = [
+    fs.writeFile(<span class="hljs-string">&apos;borrame1.md&apos;</span>, data),
+    fs.writeFile(<span class="hljs-string">&apos;borrame2.md&apos;</span>, data)
+  ]
+  <span class="hljs-built_in">Promise</span>.all(promises).then(() =&gt; {
+    <span class="hljs-keyword">let</span> promises = [
+      fs.unlink(<span class="hljs-string">&apos;borrame1.md&apos;</span>),
+      fs.unlink(<span class="hljs-string">&apos;borrame2.md&apos;</span>)
+    ]
+    <span class="hljs-built_in">Promise</span>.all(promises).then(() =&gt; {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Hecho&apos;</span>)
+    }).catch(err =&gt; {
+      <span class="hljs-keyword">throw</span> err
+    })
+  }).catch(err =&gt; {
+    <span class="hljs-keyword">throw</span> err
+  })
+}).catch(err =&gt; {
+  <span class="hljs-keyword">throw</span> err
+})
+</code></pre>
+<p>Usando promesas nos queda un c&#xF3;digo menos anidado, pero a&#xFA;n as&#xED; es bastante complicado, sobretodo respecto al manejo de excepciones.</p>
+<h2 id="usando-iteradores">Usando iteradores</h2>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs-promise&apos;</span>)
+<span class="hljs-keyword">const</span> gensync = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;../other/generatorsUtils&apos;</span>)
+
+<span class="hljs-keyword">const</span> asyncFunc = gensync(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">yield</span> fs.readFile(<span class="hljs-string">&apos;README.md&apos;</span>)
+  <span class="hljs-keyword">yield</span> <span class="hljs-built_in">Promise</span>.all([
+    fs.writeFile(<span class="hljs-string">&apos;borrame1.md&apos;</span>, data),
+    fs.writeFile(<span class="hljs-string">&apos;borrame2.md&apos;</span>, data)
+  ])
+  <span class="hljs-keyword">yield</span> <span class="hljs-built_in">Promise</span>.all([
+    fs.unlink(<span class="hljs-string">&apos;borrame1.md&apos;</span>),
+    fs.unlink(<span class="hljs-string">&apos;borrame2.md&apos;</span>)
+  ])
+  <span class="hljs-keyword">yield</span> <span class="hljs-string">&apos;Hecho&apos;</span>
+});
+
+asyncFunc().then(<span class="hljs-built_in">console</span>.log)
+</code></pre>
+<p>Esto es un peque&#xF1;o truco que podemos usar mediante las funciones genradoras. Como podemos ver, el c&#xF3;digo nos queda casi perfecto. Normalmente si queremos usar esto, usamos una librer&#xED;a como <a href="https://github.com/tj/co" target="_blank"><code>co</code></a></p>
+<h2 id="async-y-await"><code>async</code> y <code>await</code></h2>
+<p>Por &#xFA;ltimo, tenemos la nueva sintaxis, que ya est&#xE1; disponible en node usando la flag <code>--harmony</code>.</p>
+<p><code>async</code> se usa para declarar una funci&#xF3;n as&#xED;ncrona, y <code>await</code> para esperar a que se resuelva una promesa.</p>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs-promise&apos;</span>)
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">asyncFunc</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> fs.readFile(<span class="hljs-string">&apos;README.md&apos;</span>)
+  <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all([
+    fs.writeFile(<span class="hljs-string">&apos;borrame1.md&apos;</span>, data),
+    fs.writeFile(<span class="hljs-string">&apos;borrame2.md&apos;</span>, data)
+  ])
+  <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all([
+    fs.unlink(<span class="hljs-string">&apos;borrame1.md&apos;</span>),
+    fs.unlink(<span class="hljs-string">&apos;borrame2.md&apos;</span>)
+  ])
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Hecho&apos;</span>
+}
+
+asyncFunc().then(<span class="hljs-built_in">console</span>.log).catch(<span class="hljs-built_in">console</span>.error)
+</code></pre>
+<p>Una funci&#xF3;n as&#xED;ncrona siempre devuelve una promesa, que se resuelve con el <code>return</code> y se rechaza mediante un <code>throw</code>.</p>
 
                                 
                                 </section>
@@ -604,7 +690,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"11. Async y Await","level":"1.5.11","depth":2,"next":{"title":"12. Integración de Babel con Gulp","level":"1.5.12","depth":2,"path":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","ref":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","articles":[]},"previous":{"title":"10. Export","level":"1.5.10","depth":2,"path":"babel-es6-es7-y-es8/export.md","ref":"babel-es6-es7-y-es8/export.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/async-y-await.md","mtime":"2016-11-14T14:07:17.974Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T21:27:50.737Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"11. Async y Await","level":"1.5.11","depth":2,"next":{"title":"12. Integración de Babel con Gulp","level":"1.5.12","depth":2,"path":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","ref":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","articles":[]},"previous":{"title":"10. Export","level":"1.5.10","depth":2,"path":"babel-es6-es7-y-es8/export.md","ref":"babel-es6-es7-y-es8/export.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/async-y-await.md","mtime":"2016-11-15T14:01:00.734Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

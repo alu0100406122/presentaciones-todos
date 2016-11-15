@@ -198,12 +198,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="operador-de-dispersion.html">
+        <li class="chapter " data-level="1.5.4" data-path="deconstrucciones.html">
             
-                <a href="operador-de-dispersion.html">
+                <a href="deconstrucciones.html">
             
                     
-                    4. Operador de Dispersión
+                    4. Deconstrucciones
             
                 </a>
             
@@ -211,12 +211,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="deconstrucciones.html">
+        <li class="chapter " data-level="1.5.5" data-path="operador-de-dispersion.html">
             
-                <a href="deconstrucciones.html">
+                <a href="operador-de-dispersion.html">
             
                     
-                    5. Deconstrucciones
+                    5. Operador de Dispersión
             
                 </a>
             
@@ -561,6 +561,32 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="1-proceso-de-introducci&#xF3;n-de-nuevas-caracter&#xED;sticas">1. Proceso de Introducci&#xF3;n de Nuevas Caracter&#xED;sticas</h1>
+<p>JavaScript es un dialecto del est&#xE1;ndar ECMAScript. En este est&#xE1;ndar se van a&#xF1;adiendo distintas caracter&#xED;sticas que poco a poco son implementadas en los distintos motores de JavaScript.</p>
+<h2 id="proceso-tc39">Proceso TC39</h2>
+<ul>
+<li><a href="https://github.com/tc39" target="_blank">Organizaci&#xF3;n</a></li>
+</ul>
+<p>El TC39 (Technical Committee 39) es el comit&#xE9; responsable de evolucionar la especificaci&#xF3;n de ECMAScript. El comit&#xE9; opera mediante conceso entre distintas empresas, y los cambios que se van ideando pasan por distintos estados.</p>
+<h3 id="stage-0---strawman"><code>stage-0 - Strawman</code></h3>
+<p>En este estado se suben ideas del comit&#xE9; TC39 o de alguien registrado como contribuidor. De estas caracter&#xED;sticas algunas se llegan a implementar, y otras son descartadas.</p>
+<h3 id="stage-1---proposal"><code>stage-1 - proposal</code></h3>
+<p>El &quot;jefe&quot; (llamado <em>champion</em> en ingl&#xE9;s) se convierte en el responsable de la propuesta. En este punto ya existe una descripci&#xF3;n formal de la idea, descrita en forma de ejemplos, una API, sem&#xE1;ntica y algoritmos.</p>
+<h3 id="stage-2---draft"><code>stage-2 - draft</code></h3>
+<p>Es una primera versi&#xF3;n de lo que se incluir&#xE1; en la especificaci&#xF3;n. Normalmente cuando se llega a este punto suele ser segura su inclusi&#xF3;n en el est&#xE1;ndar. Se necesita tene una descripci&#xF3;n usando el lenguaje de ECMAScript. Adem&#xE1;s, se requiren dos implementaciones experimentales, pero una de ellas puede ser haciendo uso de un transpilador como <a href="https://babeljs.io/" target="_blank">Babel</a>.</p>
+<h3 id="stage-3---candidate"><code>stage-3 - candidate</code></h3>
+<p>La propuesta est&#xE1; casi finalizada y ahora se necesitan las opiniones de los usuarios de las implenetaciones para progresar. El texto de la especificaci&#xF3;n debe estar completo. Los evaluadores designados por el TC39 deben finalizar la especificaci&#xF3;n. Debe haber al menos dos implemetaciones funcionales. Los cambios s&#xF3;lo se har&#xE1;n en respuesta a problemas cr&#xED;ticos que se hayan descubierto por las implemetaciones y su uso.</p>
+<h3 id="stage-4---finished"><code>stage-4 - finished</code></h3>
+<p>La propuesta est&#xE1; lista para ser incluida en el est&#xE1;ndar.</p>
+<h2 id="implementaci&#xF3;n-de-v8">Implementaci&#xF3;n de V8</h2>
+<ul>
+<li><a href="https://github.com/v8/v8" target="_blank">Repo</a></li>
+</ul>
+<p>V8 es un motor de c&#xF3;digo abierto para JavaScript creado por Google e implementa el est&#xE1;ndar ECMAScript. Existen otros motores de JavaScript, como <a href="https://github.com/Microsoft/ChakraCore" target="_blank">ChakraCore</a> o <a href="http://hg.mozilla.org/mozilla-central/file/tip/js/src" target="_blank">SpiderMonkey</a></p>
+<h2 id="nodejs">Node.js</h2>
+<ul>
+<li><a href="https://github.com/nodejs/node" target="_blank">Repo</a></li>
+</ul>
+<p>Node.js es un entorno en tiempo de ejecuci&#xF3;n consutr&#xED;do sobre el motor V8. La principal caracter&#xED;stica es su interfaz as&#xED;ncrona y orientada a eventos. Cada versi&#xF3;n de node implementa alguna versi&#xF3;n de V8. Esta versi&#xF3;n se puede averiguar usando la variable <code>process.versions.v8</code>. Tambi&#xE9;n existen versiones de Node.js en otros motores de JavaScript, como en <a href="https://github.com/nodejs/node-chakracore" target="_blank">node-chakracore</a>.</p>
 
                                 
                                 </section>
@@ -604,7 +630,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1. Proceso de Introducción de Nuevas Características","level":"1.5.1","depth":2,"next":{"title":"2. Babel","level":"1.5.2","depth":2,"path":"babel-es6-es7-y-es8/babel.md","ref":"babel-es6-es7-y-es8/babel.md","articles":[]},"previous":{"title":"Babel ES6, ES7 y ES8","level":"1.5","depth":1,"path":"babel-es6-es7-y-es8/README.md","ref":"babel-es6-es7-y-es8/README.md","articles":[{"title":"1. Proceso de Introducción de Nuevas Características","level":"1.5.1","depth":2,"path":"babel-es6-es7-y-es8/proceso-de-introduccion-de-nuevas-caracteristicas.md","ref":"babel-es6-es7-y-es8/proceso-de-introduccion-de-nuevas-caracteristicas.md","articles":[]},{"title":"2. Babel","level":"1.5.2","depth":2,"path":"babel-es6-es7-y-es8/babel.md","ref":"babel-es6-es7-y-es8/babel.md","articles":[]},{"title":"3. Funciones Flecha","level":"1.5.3","depth":2,"path":"babel-es6-es7-y-es8/funciones-flecha.md","ref":"babel-es6-es7-y-es8/funciones-flecha.md","articles":[]},{"title":"4. Operador de Dispersión","level":"1.5.4","depth":2,"path":"babel-es6-es7-y-es8/operador-de-dispersion.md","ref":"babel-es6-es7-y-es8/operador-de-dispersion.md","articles":[]},{"title":"5. Deconstrucciones","level":"1.5.5","depth":2,"path":"babel-es6-es7-y-es8/deconstrucciones.md","ref":"babel-es6-es7-y-es8/deconstrucciones.md","articles":[]},{"title":"6. Iteradores","level":"1.5.6","depth":2,"path":"babel-es6-es7-y-es8/iteradores.md","ref":"babel-es6-es7-y-es8/iteradores.md","articles":[]},{"title":"7. Nueva sintaxis en bucles for","level":"1.5.7","depth":2,"path":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","ref":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","articles":[]},{"title":"8. Operador bind","level":"1.5.8","depth":2,"path":"babel-es6-es7-y-es8/operador-bind.md","ref":"babel-es6-es7-y-es8/operador-bind.md","articles":[]},{"title":"9. Import","level":"1.5.9","depth":2,"path":"babel-es6-es7-y-es8/import.md","ref":"babel-es6-es7-y-es8/import.md","articles":[]},{"title":"10. Export","level":"1.5.10","depth":2,"path":"babel-es6-es7-y-es8/export.md","ref":"babel-es6-es7-y-es8/export.md","articles":[]},{"title":"11. Async y Await","level":"1.5.11","depth":2,"path":"babel-es6-es7-y-es8/async-y-await.md","ref":"babel-es6-es7-y-es8/async-y-await.md","articles":[]},{"title":"12. Integración de Babel con Gulp","level":"1.5.12","depth":2,"path":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","ref":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","articles":[]},{"title":"13. Integración con Express","level":"1.5.13","depth":2,"path":"babel-es6-es7-y-es8/integracion-con-express.md","ref":"babel-es6-es7-y-es8/integracion-con-express.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/proceso-de-introduccion-de-nuevas-caracteristicas.md","mtime":"2016-11-14T14:08:05.103Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T21:27:50.737Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1. Proceso de Introducción de Nuevas Características","level":"1.5.1","depth":2,"next":{"title":"2. Babel","level":"1.5.2","depth":2,"path":"babel-es6-es7-y-es8/babel.md","ref":"babel-es6-es7-y-es8/babel.md","articles":[]},"previous":{"title":"Babel ES6, ES7 y ES8","level":"1.5","depth":1,"path":"babel-es6-es7-y-es8/README.md","ref":"babel-es6-es7-y-es8/README.md","articles":[{"title":"1. Proceso de Introducción de Nuevas Características","level":"1.5.1","depth":2,"path":"babel-es6-es7-y-es8/proceso-de-introduccion-de-nuevas-caracteristicas.md","ref":"babel-es6-es7-y-es8/proceso-de-introduccion-de-nuevas-caracteristicas.md","articles":[]},{"title":"2. Babel","level":"1.5.2","depth":2,"path":"babel-es6-es7-y-es8/babel.md","ref":"babel-es6-es7-y-es8/babel.md","articles":[]},{"title":"3. Funciones Flecha","level":"1.5.3","depth":2,"path":"babel-es6-es7-y-es8/funciones-flecha.md","ref":"babel-es6-es7-y-es8/funciones-flecha.md","articles":[]},{"title":"4. Deconstrucciones","level":"1.5.4","depth":2,"path":"babel-es6-es7-y-es8/deconstrucciones.md","ref":"babel-es6-es7-y-es8/deconstrucciones.md","articles":[]},{"title":"5. Operador de Dispersión","level":"1.5.5","depth":2,"path":"babel-es6-es7-y-es8/operador-de-dispersion.md","ref":"babel-es6-es7-y-es8/operador-de-dispersion.md","articles":[]},{"title":"6. Iteradores","level":"1.5.6","depth":2,"path":"babel-es6-es7-y-es8/iteradores.md","ref":"babel-es6-es7-y-es8/iteradores.md","articles":[]},{"title":"7. Nueva sintaxis en bucles for","level":"1.5.7","depth":2,"path":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","ref":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","articles":[]},{"title":"8. Operador bind","level":"1.5.8","depth":2,"path":"babel-es6-es7-y-es8/operador-bind.md","ref":"babel-es6-es7-y-es8/operador-bind.md","articles":[]},{"title":"9. Import","level":"1.5.9","depth":2,"path":"babel-es6-es7-y-es8/import.md","ref":"babel-es6-es7-y-es8/import.md","articles":[]},{"title":"10. Export","level":"1.5.10","depth":2,"path":"babel-es6-es7-y-es8/export.md","ref":"babel-es6-es7-y-es8/export.md","articles":[]},{"title":"11. Async y Await","level":"1.5.11","depth":2,"path":"babel-es6-es7-y-es8/async-y-await.md","ref":"babel-es6-es7-y-es8/async-y-await.md","articles":[]},{"title":"12. Integración de Babel con Gulp","level":"1.5.12","depth":2,"path":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","ref":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","articles":[]},{"title":"13. Integración con Express","level":"1.5.13","depth":2,"path":"babel-es6-es7-y-es8/integracion-con-express.md","ref":"babel-es6-es7-y-es8/integracion-con-express.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/proceso-de-introduccion-de-nuevas-caracteristicas.md","mtime":"2016-11-15T14:01:00.745Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

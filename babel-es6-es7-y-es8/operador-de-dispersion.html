@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4. Operador de Dispersión · presentaciones</title>
+        <title>5. Operador de Dispersión · presentaciones</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="deconstrucciones.html" />
+    <link rel="next" href="iteradores.html" />
     
     
-    <link rel="prev" href="funciones-flecha.html" />
+    <link rel="prev" href="deconstrucciones.html" />
     
 
     </head>
@@ -198,12 +198,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.4" data-path="operador-de-dispersion.html">
+        <li class="chapter " data-level="1.5.4" data-path="deconstrucciones.html">
             
-                <a href="operador-de-dispersion.html">
+                <a href="deconstrucciones.html">
             
                     
-                    4. Operador de Dispersión
+                    4. Deconstrucciones
             
                 </a>
             
@@ -211,12 +211,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="deconstrucciones.html">
+        <li class="chapter active" data-level="1.5.5" data-path="operador-de-dispersion.html">
             
-                <a href="deconstrucciones.html">
+                <a href="operador-de-dispersion.html">
             
                     
-                    5. Deconstrucciones
+                    5. Operador de Dispersión
             
                 </a>
             
@@ -545,7 +545,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >4. Operador de Dispersión</a>
+        <a href=".." >5. Operador de Dispersión</a>
     </h1>
 </div>
 
@@ -560,7 +560,90 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="4-operador-de-dispersi&#xF3;n">4. Operador de Dispersi&#xF3;n</h1>
+                                <h1 id="5-operador-de-dispersi&#xF3;n">5. Operador de Dispersi&#xF3;n</h1>
+<p>El operador de dispersi&#xF3;n nos permite extrar el &quot;resto&quot; de par&#xE1;metros de un array o un objeto.</p>
+<h2 id="uso-con-un-array">Uso con un Array</h2>
+<p>Podemos separar el contenido de un array usando este operador, por ejemplo, si tenemos el array:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+</code></pre>
+<p>Para separarlo, podemos usar el operador de dispersi&#xF3;n:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> [a, b, ...rest] = arr
+</code></pre>
+<p>En este punto, <code>a</code> valdr&#xED;a <code>1</code>, <code>b</code> valdr&#xED;a <code>2</code>, y en <code>res</code> se almacena el resto del array, es decir <code>[3, 4, 5]</code>.</p>
+<h2 id="uso-con-objectos">Uso con objectos</h2>
+<p>De manera similar, tambi&#xE9;n podemos extraer las claves de un objecto, si por ejemplo tenemos:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> obj = {a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>, c: <span class="hljs-number">3</span>, d: <span class="hljs-number">4</span>}
+</code></pre>
+<p>Podemos extraer algunas claves, e incluir el resto del objeto en otra variable:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> {a, b, ...rest} = obj
+</code></pre>
+<p>Al hacer esto, en <code>a</code> se guardar&#xED;a <code>1</code>, en <code>b</code> <code>2</code>, y en <code>rest</code> el resto del objeto, <code>{c: 3, d: 4}</code>.</p>
+<h2 id="uso-en-funciones">Uso en funciones</h2>
+<p>Esta estracci&#xF3;n la podemos realizar en los par&#xE1;metros de las funciones. Lo que se hac&#xED;a normalmente era iterar sobre el objeto <code>arguments</code>, que almacena en un array los par&#xE1;metros de la funci&#xF3;n.</p>
+<pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">usuario, apellidos</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(usuario)
+  <span class="hljs-built_in">console</span>.log(apellidos)
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">2</span>; i &lt; <span class="hljs-built_in">arguments</span>.length; i++) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">arguments</span>[i])
+  }
+
+}
+
+foo(<span class="hljs-string">&apos;Jose&apos;</span>, <span class="hljs-string">&apos;Jim&#xE9;nez&apos;</span>)
+
+foo(<span class="hljs-string">&apos;Juan&apos;</span>, <span class="hljs-string">&apos;Jerez&apos;</span>, <span class="hljs-number">658329832</span>, <span class="hljs-string">&apos;Calle Wallaby 32, Sydney&apos;</span>)
+</code></pre>
+<p>Con el nuevo operador, podemos a&#xF1;adir un tercer par&#xE1;metro haciendo uso del nuevo operador:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">usuario, apellidos, ...other</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(usuario)
+  <span class="hljs-built_in">console</span>.log(apellidos)
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> param <span class="hljs-keyword">of</span> other) <span class="hljs-built_in">console</span>.log(param)
+}
+
+foo(<span class="hljs-string">&apos;Jose&apos;</span>, <span class="hljs-string">&apos;Jim&#xE9;nez&apos;</span>)
+
+foo(<span class="hljs-string">&apos;Juan&apos;</span>, <span class="hljs-string">&apos;Jerez&apos;</span>, <span class="hljs-number">658329832</span>, <span class="hljs-string">&apos;Calle Wallaby 32, Sydney&apos;</span>)
+</code></pre>
+<p>Por lo que en la variable <code>other</code>, se almacenan en forma de array el resto de par&#xE1;metros que se le pasen a la funci&#xF3;n.</p>
+<h2 id="valores-por-defecto-en-un-objeto">Valores por defecto en un objeto</h2>
+<p>El operador <code>...</code> tambi&#xE9;n lo podemos usar a la hora de crear un objeto, y la principal utilidad de esto es crear unos valores por defecto para un objeto. Por ejemplo, cuando recojemos las opciones por <code>argv</code> con <code>minimist</code>, tendr&#xED;amos algo as&#xED;:</p>
+<pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">miPrograma</span> (<span class="hljs-params">argv</span>) </span>{
+  <span class="hljs-keyword">var</span> options =   {
+    autor: argv.autor || <span class="hljs-string">&apos;Tu nombre&apos;</span>,
+    titulo: argv.titulo || <span class="hljs-string">&apos;Titulo del Libro&apos;</span>,
+    descripcion: argv.descripcion || <span class="hljs-string">&apos;Descripci&#xF3;n breve del gitbook&apos;</span>
+  }
+  <span class="hljs-built_in">console</span>.log(options)
+  <span class="hljs-comment">// Hacer algo con las opciones</span>
+}
+
+
+<span class="hljs-keyword">var</span> argv = {
+  autor: <span class="hljs-string">&apos;Jose Jim&#xE9;nez&apos;</span>
+}
+
+miPrograma(argv)
+</code></pre>
+<p>Usamos el circuito corto para construir el objeto <code>options</code>. Usando <code>...</code>, podemos sobreescribir los par&#xE1;metros que se nos indiquen.</p>
+<pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">miPrograma</span> (<span class="hljs-params">argv</span>) </span>{
+  <span class="hljs-keyword">let</span> options = {
+    autor: <span class="hljs-string">&apos;Tu nombre&apos;</span>,
+    titulo: <span class="hljs-string">&apos;Titulo del Libro&apos;</span>,
+    descripcion: <span class="hljs-string">&apos;Descripci&#xF3;n breve del gitbook&apos;</span>,
+    ...argv
+  }
+  <span class="hljs-built_in">console</span>.log(options)
+  <span class="hljs-comment">// Hacer algo con las opciones</span>
+}
+
+
+<span class="hljs-keyword">let</span> argv = {
+  autor: <span class="hljs-string">&apos;Jose Jim&#xE9;nez&apos;</span>
+}
+
+miPrograma(argv)
+</code></pre>
+<p>Al hacer esto, las claves que existan en <code>argv</code> que est&#xE9;n en <code>options</code>, se ver&#xE1;n reemplazadas.</p>
 
                                 
                                 </section>
@@ -588,12 +671,12 @@
 
             
                 
-                <a href="funciones-flecha.html" class="navigation navigation-prev " aria-label="Previous page: 3. Funciones Flecha">
+                <a href="deconstrucciones.html" class="navigation navigation-prev " aria-label="Previous page: 4. Deconstrucciones">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="deconstrucciones.html" class="navigation navigation-next " aria-label="Next page: 5. Deconstrucciones">
+                <a href="iteradores.html" class="navigation navigation-next " aria-label="Next page: 6. Iteradores">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -604,7 +687,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4. Operador de Dispersión","level":"1.5.4","depth":2,"next":{"title":"5. Deconstrucciones","level":"1.5.5","depth":2,"path":"babel-es6-es7-y-es8/deconstrucciones.md","ref":"babel-es6-es7-y-es8/deconstrucciones.md","articles":[]},"previous":{"title":"3. Funciones Flecha","level":"1.5.3","depth":2,"path":"babel-es6-es7-y-es8/funciones-flecha.md","ref":"babel-es6-es7-y-es8/funciones-flecha.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/operador-de-dispersion.md","mtime":"2016-11-14T14:08:01.111Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-14T21:27:50.737Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5. Operador de Dispersión","level":"1.5.5","depth":2,"next":{"title":"6. Iteradores","level":"1.5.6","depth":2,"path":"babel-es6-es7-y-es8/iteradores.md","ref":"babel-es6-es7-y-es8/iteradores.md","articles":[]},"previous":{"title":"4. Deconstrucciones","level":"1.5.4","depth":2,"path":"babel-es6-es7-y-es8/deconstrucciones.md","ref":"babel-es6-es7-y-es8/deconstrucciones.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/operador-de-dispersion.md","mtime":"2016-11-15T14:01:00.741Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
