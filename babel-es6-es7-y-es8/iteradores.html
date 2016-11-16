@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-codetabs/codetabs.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -570,6 +574,7 @@
 </code></pre>
 <p>Cada vez que se llame a <code>miFuncionIteradora()</code>, se ir&#xE1; devolviendo poco a poco el saludo.</p>
 <p>Veamos otro ejemplo. En esta funci&#xF3;n, se devuelven los n&#xFA;meros de Fibonacci de forma indefinida usando <code>yield</code>:</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fibonacci</span>(<span class="hljs-params"></span>)</span>{
   <span class="hljs-keyword">let</span> [ a, b ] = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]
   <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>){
@@ -595,6 +600,7 @@
 </code></pre>
 <h2 id="complentaci&#xF3;n-con-bucles">Complentaci&#xF3;n con bucles</h2>
 <p>Cuando instanciamos un objecto, podemos definir la clave <code>Symbol.iterator</code> como una funci&#xF3;n iteradora. Ser&#xED;a como el <code>def each do |i|</code> de Ruby. Por ejemplo, esta clase va retornando de forma alternativa los elementos de dos arrays:</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Join</span> </span>{
   <span class="hljs-keyword">constructor</span>(arr1, arr2) {
     <span class="hljs-keyword">this</span>.arr1 = arr1
@@ -614,14 +620,6 @@
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> element <span class="hljs-keyword">of</span> join) {
   <span class="hljs-built_in">console</span>.log(element)
 }
-</code></pre>
-<p>En el <code>console.log</code> saldr&#xED;a:</p>
-<pre><code class="lang-JavaScript"><span class="hljs-number">1</span>
-uno
-<span class="hljs-number">2</span>
-dos
-<span class="hljs-number">3</span>
-tres
 </code></pre>
 
                                 
@@ -666,7 +664,7 @@ tres
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6. Iteradores","level":"1.5.6","depth":2,"next":{"title":"7. Nueva sintaxis en bucles for","level":"1.5.7","depth":2,"path":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","ref":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","articles":[]},"previous":{"title":"5. Operador de Dispersión","level":"1.5.5","depth":2,"path":"babel-es6-es7-y-es8/operador-de-dispersion.md","ref":"babel-es6-es7-y-es8/operador-de-dispersion.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/iteradores.md","mtime":"2016-11-15T14:01:00.739Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6. Iteradores","level":"1.5.6","depth":2,"next":{"title":"7. Nueva sintaxis en bucles for","level":"1.5.7","depth":2,"path":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","ref":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","articles":[]},"previous":{"title":"5. Operador de Dispersión","level":"1.5.5","depth":2,"path":"babel-es6-es7-y-es8/operador-de-dispersion.md","ref":"babel-es6-es7-y-es8/operador-de-dispersion.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/iteradores.md","mtime":"2016-11-16T23:16:06.200Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-16T23:19:48.757Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -674,6 +672,18 @@ tres
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-js-console/console-ui.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-codetabs/codetabs.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

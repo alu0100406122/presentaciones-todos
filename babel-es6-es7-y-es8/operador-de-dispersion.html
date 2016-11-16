@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-codetabs/codetabs.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -567,19 +571,29 @@
 <pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
 </code></pre>
 <p>Para separarlo, podemos usar el operador de dispersi&#xF3;n:</p>
-<pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> [a, b, ...rest] = arr
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+<span class="hljs-keyword">let</span> [a, b, ...rest] = arr
+<span class="hljs-built_in">console</span>.log(a)
+<span class="hljs-built_in">console</span>.log(b)
+<span class="hljs-built_in">console</span>.log(rest)
 </code></pre>
 <p>En este punto, <code>a</code> valdr&#xED;a <code>1</code>, <code>b</code> valdr&#xED;a <code>2</code>, y en <code>res</code> se almacena el resto del array, es decir <code>[3, 4, 5]</code>.</p>
-<h2 id="uso-con-objectos">Uso con objectos</h2>
+<h2 id="uso-con-objetos">Uso con objetos</h2>
 <p>De manera similar, tambi&#xE9;n podemos extraer las claves de un objecto, si por ejemplo tenemos:</p>
 <pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> obj = {a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>, c: <span class="hljs-number">3</span>, d: <span class="hljs-number">4</span>}
 </code></pre>
 <p>Podemos extraer algunas claves, e incluir el resto del objeto en otra variable:</p>
-<pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> {a, b, ...rest} = obj
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> obj = {a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>, c: <span class="hljs-number">3</span>, d: <span class="hljs-number">4</span>}
+<span class="hljs-keyword">let</span> {a, b, ...rest} = obj
+<span class="hljs-built_in">console</span>.log(a)
+<span class="hljs-built_in">console</span>.log(b)
+<span class="hljs-built_in">console</span>.log(rest)
 </code></pre>
 <p>Al hacer esto, en <code>a</code> se guardar&#xED;a <code>1</code>, en <code>b</code> <code>2</code>, y en <code>rest</code> el resto del objeto, <code>{c: 3, d: 4}</code>.</p>
 <h2 id="uso-en-funciones">Uso en funciones</h2>
 <p>Esta estracci&#xF3;n la podemos realizar en los par&#xE1;metros de las funciones. Lo que se hac&#xED;a normalmente era iterar sobre el objeto <code>arguments</code>, que almacena en un array los par&#xE1;metros de la funci&#xF3;n.</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">usuario, apellidos</span>) </span>{
   <span class="hljs-built_in">console</span>.log(usuario)
   <span class="hljs-built_in">console</span>.log(apellidos)
@@ -594,6 +608,7 @@ foo(<span class="hljs-string">&apos;Jose&apos;</span>, <span class="hljs-string"
 foo(<span class="hljs-string">&apos;Juan&apos;</span>, <span class="hljs-string">&apos;Jerez&apos;</span>, <span class="hljs-number">658329832</span>, <span class="hljs-string">&apos;Calle Wallaby 32, Sydney&apos;</span>)
 </code></pre>
 <p>Con el nuevo operador, podemos a&#xF1;adir un tercer par&#xE1;metro haciendo uso del nuevo operador:</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">usuario, apellidos, ...other</span>) </span>{
   <span class="hljs-built_in">console</span>.log(usuario)
   <span class="hljs-built_in">console</span>.log(apellidos)
@@ -607,6 +622,7 @@ foo(<span class="hljs-string">&apos;Juan&apos;</span>, <span class="hljs-string"
 <p>Por lo que en la variable <code>other</code>, se almacenan en forma de array el resto de par&#xE1;metros que se le pasen a la funci&#xF3;n.</p>
 <h2 id="valores-por-defecto-en-un-objeto">Valores por defecto en un objeto</h2>
 <p>El operador <code>...</code> tambi&#xE9;n lo podemos usar a la hora de crear un objeto, y la principal utilidad de esto es crear unos valores por defecto para un objeto. Por ejemplo, cuando recojemos las opciones por <code>argv</code> con <code>minimist</code>, tendr&#xED;amos algo as&#xED;:</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">miPrograma</span> (<span class="hljs-params">argv</span>) </span>{
   <span class="hljs-keyword">var</span> options =   {
     autor: argv.autor || <span class="hljs-string">&apos;Tu nombre&apos;</span>,
@@ -687,7 +703,7 @@ miPrograma(argv)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5. Operador de Dispersión","level":"1.5.5","depth":2,"next":{"title":"6. Iteradores","level":"1.5.6","depth":2,"path":"babel-es6-es7-y-es8/iteradores.md","ref":"babel-es6-es7-y-es8/iteradores.md","articles":[]},"previous":{"title":"4. Deconstrucciones","level":"1.5.4","depth":2,"path":"babel-es6-es7-y-es8/deconstrucciones.md","ref":"babel-es6-es7-y-es8/deconstrucciones.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/operador-de-dispersion.md","mtime":"2016-11-15T14:01:00.741Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5. Operador de Dispersión","level":"1.5.5","depth":2,"next":{"title":"6. Iteradores","level":"1.5.6","depth":2,"path":"babel-es6-es7-y-es8/iteradores.md","ref":"babel-es6-es7-y-es8/iteradores.md","articles":[]},"previous":{"title":"4. Deconstrucciones","level":"1.5.4","depth":2,"path":"babel-es6-es7-y-es8/deconstrucciones.md","ref":"babel-es6-es7-y-es8/deconstrucciones.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/operador-de-dispersion.md","mtime":"2016-11-16T23:16:06.206Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-16T23:19:48.757Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -695,6 +711,18 @@ miPrograma(argv)
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-js-console/console-ui.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-codetabs/codetabs.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

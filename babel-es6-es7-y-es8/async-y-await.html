@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-codetabs/codetabs.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -629,7 +633,7 @@ asyncFunc().then(<span class="hljs-built_in">console</span>.log)
 <h2 id="async-y-await"><code>async</code> y <code>await</code></h2>
 <p>Por &#xFA;ltimo, tenemos la nueva sintaxis, que ya est&#xE1; disponible en node usando la flag <code>--harmony</code>.</p>
 <p><code>async</code> se usa para declarar una funci&#xF3;n as&#xED;ncrona, y <code>await</code> para esperar a que se resuelva una promesa.</p>
-<pre><code class="lang-JavaScript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs-promise&apos;</span>)
+<p><div class="codetabs"><div class="codetabs-header"><div class="tab active" data-codetab="0">ES 6</div><div class="tab" data-codetab="1">ES 5</div></div><div class="codetabs-body"><div class="tab active" data-codetab="0"><pre><code class="lang-js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs-promise&apos;</span>)
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">asyncFunc</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> fs.readFile(<span class="hljs-string">&apos;README.md&apos;</span>)
@@ -644,8 +648,48 @@ asyncFunc().then(<span class="hljs-built_in">console</span>.log)
   <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Hecho&apos;</span>
 }
 
-asyncFunc().then(<span class="hljs-built_in">console</span>.log).catch(<span class="hljs-built_in">console</span>.error)
-</code></pre>
+asyncFunc().then(<span class="hljs-built_in">console</span>.log).catch(<span class="hljs-built_in">console</span>.error)</code></pre></div><div class="tab" data-codetab="1"><pre><code class="lang-js"><span class="hljs-meta">&apos;use strict&apos;</span>;
+
+<span class="hljs-keyword">var</span> asyncFunc = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> _ref = _asyncToGenerator(regeneratorRuntime.mark(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_callee</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> data;
+    <span class="hljs-keyword">return</span> regeneratorRuntime.wrap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_callee$</span>(<span class="hljs-params">_context</span>) </span>{
+      <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">switch</span> (_context.prev = _context.next) {
+          <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+            _context.next = <span class="hljs-number">2</span>;
+            <span class="hljs-keyword">return</span> fs.readFile(<span class="hljs-string">&apos;README.md&apos;</span>);
+
+          <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+            data = _context.sent;
+            _context.next = <span class="hljs-number">5</span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all([fs.writeFile(<span class="hljs-string">&apos;borrame1.md&apos;</span>, data), fs.writeFile(<span class="hljs-string">&apos;borrame2.md&apos;</span>, data)]);
+
+          <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+            _context.next = <span class="hljs-number">7</span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all([fs.unlink(<span class="hljs-string">&apos;borrame1.md&apos;</span>), fs.unlink(<span class="hljs-string">&apos;borrame2.md&apos;</span>)]);
+
+          <span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:
+            <span class="hljs-keyword">return</span> _context.abrupt(<span class="hljs-string">&apos;return&apos;</span>, <span class="hljs-string">&apos;Hecho&apos;</span>);
+
+          <span class="hljs-keyword">case</span> <span class="hljs-number">8</span>:
+          <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;end&apos;</span>:
+            <span class="hljs-keyword">return</span> _context.stop();
+        }
+      }
+    }, _callee, <span class="hljs-keyword">this</span>);
+  }));
+
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">asyncFunc</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> _ref.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+  };
+}();
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_asyncToGenerator</span>(<span class="hljs-params">fn</span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">var</span> gen = fn.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>); <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) </span>{ <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">step</span>(<span class="hljs-params">key, arg</span>) </span>{ <span class="hljs-keyword">try</span> { <span class="hljs-keyword">var</span> info = gen[key](arg); <span class="hljs-keyword">var</span> value = info.value; } <span class="hljs-keyword">catch</span> (error) { reject(error); <span class="hljs-keyword">return</span>; } <span class="hljs-keyword">if</span> (info.done) { resolve(value); } <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(value).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>{ step(<span class="hljs-string">&quot;next&quot;</span>, value); }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{ step(<span class="hljs-string">&quot;throw&quot;</span>, err); }); } } <span class="hljs-keyword">return</span> step(<span class="hljs-string">&quot;next&quot;</span>); }); }; }
+
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs-promise&apos;</span>);
+
+asyncFunc().then(<span class="hljs-built_in">console</span>.log).catch(<span class="hljs-built_in">console</span>.error);</code></pre></div></div></div></p>
 <p>Una funci&#xF3;n as&#xED;ncrona siempre devuelve una promesa, que se resuelve con el <code>return</code> y se rechaza mediante un <code>throw</code>.</p>
 
                                 
@@ -690,7 +734,7 @@ asyncFunc().then(<span class="hljs-built_in">console</span>.log).catch(<span cla
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"11. Async y Await","level":"1.5.11","depth":2,"next":{"title":"12. Integración de Babel con Gulp","level":"1.5.12","depth":2,"path":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","ref":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","articles":[]},"previous":{"title":"10. Export","level":"1.5.10","depth":2,"path":"babel-es6-es7-y-es8/export.md","ref":"babel-es6-es7-y-es8/export.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/async-y-await.md","mtime":"2016-11-15T14:01:00.734Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"11. Async y Await","level":"1.5.11","depth":2,"next":{"title":"12. Integración de Babel con Gulp","level":"1.5.12","depth":2,"path":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","ref":"babel-es6-es7-y-es8/integracion-de-babel-con-gulp.md","articles":[]},"previous":{"title":"10. Export","level":"1.5.10","depth":2,"path":"babel-es6-es7-y-es8/export.md","ref":"babel-es6-es7-y-es8/export.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/async-y-await.md","mtime":"2016-11-16T23:16:06.191Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-16T23:19:48.757Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -698,6 +742,18 @@ asyncFunc().then(<span class="hljs-built_in">console</span>.log).catch(<span cla
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-js-console/console-ui.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-codetabs/codetabs.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-codetabs/codetabs.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -562,6 +566,7 @@
                                 
                                 <h1 id="7-nueva-sintaxis-en-bucles-for">7. Nueva sintaxis en bucles for</h1>
 <p>Antiguamente, se usaba la palabra clave <code>in</code> para iterar sobre un array:</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">array</span>) </span>{
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> array) {
     <span class="hljs-built_in">console</span>.log(array[i])
@@ -572,6 +577,7 @@
 foo([<span class="hljs-string">&apos;Jose&apos;</span>, <span class="hljs-string">&apos;Juan&apos;</span>, <span class="hljs-string">&apos;Javier&apos;</span>, <span class="hljs-string">&apos;Jorge&apos;</span>])
 </code></pre>
 <p>Pero declarar la variable usando <code>var</code> hace que se nos ensucie el scope que est&#xE1; dentro del <code>for</code>. Para solucionar esto podemos usar <code>let</code>, pero a&#xFA;n as&#xED; al iterar tenemos que indexar el array, adem&#xE1;s de que se iteran sobre strings.</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">array</span>) </span>{
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> array) {
     <span class="hljs-keyword">if</span> (i === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-comment">// No sale porque i es de tipo String :(</span>
@@ -583,6 +589,7 @@ foo([<span class="hljs-string">&apos;Jose&apos;</span>, <span class="hljs-string
 foo([<span class="hljs-string">&apos;Jose&apos;</span>, <span class="hljs-string">&apos;Juan&apos;</span>, <span class="hljs-string">&apos;Javier&apos;</span>, <span class="hljs-string">&apos;Jorge&apos;</span>])
 </code></pre>
 <p>Usando las nuevas funciones de los arrays, como <code>forEach</code>, podemos iterar de forma sencilla sobre un array mediante el uso de una callback.</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">array</span>) </span>{
   array.forEach(element =&gt; {
     <span class="hljs-built_in">console</span>.log(element)
@@ -596,6 +603,7 @@ foo(arr)
 </code></pre>
 <p>El problema de iterar usando <code>forEach</code>, es que si queremos romper las iteraciones no podemos hacer un simple return, ya que devolver&#xED;amos la callback pero se seguir&#xED;a iterando.</p>
 <p>Por &#xFA;ltimo, podemos usar la nueva sintaxis del bucle for, que es con <code>of</code> en vez de <code>in</code>:</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">array</span>) </span>{
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> element <span class="hljs-keyword">of</span> array) {
     <span class="hljs-built_in">console</span>.log(element)
@@ -648,7 +656,7 @@ foo([<span class="hljs-string">&apos;Jose&apos;</span>, <span class="hljs-string
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7. Nueva sintaxis en bucles for","level":"1.5.7","depth":2,"next":{"title":"8. Operador bind","level":"1.5.8","depth":2,"path":"babel-es6-es7-y-es8/operador-bind.md","ref":"babel-es6-es7-y-es8/operador-bind.md","articles":[]},"previous":{"title":"6. Iteradores","level":"1.5.6","depth":2,"path":"babel-es6-es7-y-es8/iteradores.md","ref":"babel-es6-es7-y-es8/iteradores.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","mtime":"2016-11-15T14:01:00.740Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7. Nueva sintaxis en bucles for","level":"1.5.7","depth":2,"next":{"title":"8. Operador bind","level":"1.5.8","depth":2,"path":"babel-es6-es7-y-es8/operador-bind.md","ref":"babel-es6-es7-y-es8/operador-bind.md","articles":[]},"previous":{"title":"6. Iteradores","level":"1.5.6","depth":2,"path":"babel-es6-es7-y-es8/iteradores.md","ref":"babel-es6-es7-y-es8/iteradores.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","mtime":"2016-11-16T23:16:06.205Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-16T23:19:48.757Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -656,6 +664,18 @@ foo([<span class="hljs-string">&apos;Jose&apos;</span>, <span class="hljs-string
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-js-console/console-ui.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-codetabs/codetabs.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-codetabs/codetabs.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -587,7 +591,7 @@ func = test.getText.bind(test)
 <span class="hljs-built_in">console</span>.log(func())
 </code></pre>
 <p>Para vincular el entorno, nombramos la instancia con el operador nuevo, seguido del m&#xE9;todo.</p>
-<pre><code class="lang-JavaScript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+<p><div class="codetabs"><div class="codetabs-header"><div class="tab active" data-codetab="0">ES 6</div><div class="tab" data-codetab="1">ES 5</div></div><div class="codetabs-body"><div class="tab active" data-codetab="0"><pre><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
   <span class="hljs-keyword">constructor</span> () {
     <span class="hljs-keyword">this</span>.text = <span class="hljs-string">&apos;Mi Texto&apos;</span>
   }
@@ -599,10 +603,34 @@ func = test.getText.bind(test)
 
 <span class="hljs-keyword">let</span> test = <span class="hljs-keyword">new</span> Test()
 <span class="hljs-keyword">const</span> func = test::test.getText
-<span class="hljs-built_in">console</span>.log(func())
-</code></pre>
+<span class="hljs-built_in">console</span>.log(func())</code></pre></div><div class="tab" data-codetab="1"><pre><code class="lang-js"><span class="hljs-meta">&apos;use strict&apos;</span>;
+
+<span class="hljs-keyword">var</span> _createClass = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineProperties</span>(<span class="hljs-params">target, props</span>) </span>{ <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; props.length; i++) { <span class="hljs-keyword">var</span> descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || <span class="hljs-literal">false</span>; descriptor.configurable = <span class="hljs-literal">true</span>; <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;value&quot;</span> <span class="hljs-keyword">in</span> descriptor) descriptor.writable = <span class="hljs-literal">true</span>; <span class="hljs-built_in">Object</span>.defineProperty(target, descriptor.key, descriptor); } } <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">Constructor, protoProps, staticProps</span>) </span>{ <span class="hljs-keyword">if</span> (protoProps) defineProperties(Constructor.prototype, protoProps); <span class="hljs-keyword">if</span> (staticProps) defineProperties(Constructor, staticProps); <span class="hljs-keyword">return</span> Constructor; }; }();
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_classCallCheck</span>(<span class="hljs-params">instance, Constructor</span>) </span>{ <span class="hljs-keyword">if</span> (!(instance <span class="hljs-keyword">instanceof</span> Constructor)) { <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&quot;Cannot call a class as a function&quot;</span>); } }
+
+<span class="hljs-keyword">var</span> Test = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Test</span>(<span class="hljs-params"></span>) </span>{
+    _classCallCheck(<span class="hljs-keyword">this</span>, Test);
+
+    <span class="hljs-keyword">this</span>.text = <span class="hljs-string">&apos;Mi Texto&apos;</span>;
+  }
+
+  _createClass(Test, [{
+    key: <span class="hljs-string">&apos;getText&apos;</span>,
+    value: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getText</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.text;
+    }
+  }]);
+
+  <span class="hljs-keyword">return</span> Test;
+}();
+
+<span class="hljs-keyword">var</span> test = <span class="hljs-keyword">new</span> Test();
+<span class="hljs-keyword">var</span> func = test.getText.bind(test);
+<span class="hljs-built_in">console</span>.log(func());</code></pre></div></div></div></p>
 <p>Podemos resumir esto, ya que la instancia tambi&#xE9;n es el mismo objeto en el que se encuentra la funci&#xF3;n:</p>
-<pre><code class="lang-JavaScript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
+<p><div class="codetabs"><div class="codetabs-header"><div class="tab active" data-codetab="0">ES 6</div><div class="tab" data-codetab="1">ES 5</div></div><div class="codetabs-body"><div class="tab active" data-codetab="0"><pre><code class="lang-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
   <span class="hljs-keyword">constructor</span> () {
     <span class="hljs-keyword">this</span>.text = <span class="hljs-string">&apos;Mi Texto&apos;</span>
   }
@@ -614,8 +642,32 @@ func = test.getText.bind(test)
 
 <span class="hljs-keyword">let</span> test = <span class="hljs-keyword">new</span> Test()
 <span class="hljs-keyword">const</span> func = ::test.getText
-<span class="hljs-built_in">console</span>.log(func())
-</code></pre>
+<span class="hljs-built_in">console</span>.log(func())</code></pre></div><div class="tab" data-codetab="1"><pre><code class="lang-js"><span class="hljs-meta">&apos;use strict&apos;</span>;
+
+<span class="hljs-keyword">var</span> _createClass = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineProperties</span>(<span class="hljs-params">target, props</span>) </span>{ <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; props.length; i++) { <span class="hljs-keyword">var</span> descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || <span class="hljs-literal">false</span>; descriptor.configurable = <span class="hljs-literal">true</span>; <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;value&quot;</span> <span class="hljs-keyword">in</span> descriptor) descriptor.writable = <span class="hljs-literal">true</span>; <span class="hljs-built_in">Object</span>.defineProperty(target, descriptor.key, descriptor); } } <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">Constructor, protoProps, staticProps</span>) </span>{ <span class="hljs-keyword">if</span> (protoProps) defineProperties(Constructor.prototype, protoProps); <span class="hljs-keyword">if</span> (staticProps) defineProperties(Constructor, staticProps); <span class="hljs-keyword">return</span> Constructor; }; }();
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_classCallCheck</span>(<span class="hljs-params">instance, Constructor</span>) </span>{ <span class="hljs-keyword">if</span> (!(instance <span class="hljs-keyword">instanceof</span> Constructor)) { <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&quot;Cannot call a class as a function&quot;</span>); } }
+
+<span class="hljs-keyword">var</span> Test = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Test</span>(<span class="hljs-params"></span>) </span>{
+    _classCallCheck(<span class="hljs-keyword">this</span>, Test);
+
+    <span class="hljs-keyword">this</span>.text = <span class="hljs-string">&apos;Mi Texto&apos;</span>;
+  }
+
+  _createClass(Test, [{
+    key: <span class="hljs-string">&apos;getText&apos;</span>,
+    value: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getText</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.text;
+    }
+  }]);
+
+  <span class="hljs-keyword">return</span> Test;
+}();
+
+<span class="hljs-keyword">var</span> test = <span class="hljs-keyword">new</span> Test();
+<span class="hljs-keyword">var</span> func = test.getText.bind(test);
+<span class="hljs-built_in">console</span>.log(func());</code></pre></div></div></div></p>
 
                                 
                                 </section>
@@ -659,7 +711,7 @@ func = test.getText.bind(test)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8. Operador bind","level":"1.5.8","depth":2,"next":{"title":"9. Import","level":"1.5.9","depth":2,"path":"babel-es6-es7-y-es8/import.md","ref":"babel-es6-es7-y-es8/import.md","articles":[]},"previous":{"title":"7. Nueva sintaxis en bucles for","level":"1.5.7","depth":2,"path":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","ref":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/operador-bind.md","mtime":"2016-11-15T14:01:00.741Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8. Operador bind","level":"1.5.8","depth":2,"next":{"title":"9. Import","level":"1.5.9","depth":2,"path":"babel-es6-es7-y-es8/import.md","ref":"babel-es6-es7-y-es8/import.md","articles":[]},"previous":{"title":"7. Nueva sintaxis en bucles for","level":"1.5.7","depth":2,"path":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","ref":"babel-es6-es7-y-es8/nueva-sintaxis-en-bucles-for.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/operador-bind.md","mtime":"2016-11-16T23:16:06.206Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-16T23:19:48.757Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -667,6 +719,18 @@ func = test.getText.bind(test)
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-js-console/console-ui.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-codetabs/codetabs.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

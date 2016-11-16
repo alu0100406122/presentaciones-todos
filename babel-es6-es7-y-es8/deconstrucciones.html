@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-codetabs/codetabs.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -561,15 +565,15 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="4-deconstrucciones">4. Deconstrucciones</h1>
-<p>La asignaci&#xF3;n por deconstrucci&#xF3;n es una expresi&#xF3;n que nos permite extrer datos de Arrays u Objectos.</p>
-<h2 id="uso-con-objectos">Uso con objectos</h2>
+<p>La asignaci&#xF3;n por deconstrucci&#xF3;n es una expresi&#xF3;n que nos permite extrer datos de Arrays u Objetos.</p>
+<h2 id="uso-con-objetos">Uso con objetos</h2>
 <p>Para usarlo con objetos necesitamos indicar los nombres de las claves que queramos extraer.</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">login</span> (<span class="hljs-params">username, password</span>) </span>{
   <span class="hljs-comment">// Hacer cosas</span>
   <span class="hljs-built_in">console</span>.log(username)
   <span class="hljs-built_in">console</span>.log(password)
 }
-
 
 <span class="hljs-keyword">let</span> argv = {
   username: <span class="hljs-string">&apos;Pepe&apos;</span>,
@@ -583,12 +587,12 @@ login(username, password)
 </code></pre>
 <h2 id="uso-con-arrays">Uso con arrays</h2>
 <p>Para usarlo con array, se usa de forma posicional:</p>
+<p><a class="gitbook-plugin-js-console" aria-hidden="true"></a></p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">login</span> (<span class="hljs-params">username, password</span>) </span>{
   <span class="hljs-comment">// Hacer cosas</span>
   <span class="hljs-built_in">console</span>.log(username)
   <span class="hljs-built_in">console</span>.log(password)
 }
-
 
 <span class="hljs-keyword">let</span> argv = [
   <span class="hljs-string">&apos;Pepe&apos;</span>,
@@ -643,7 +647,7 @@ login(username, password)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4. Deconstrucciones","level":"1.5.4","depth":2,"next":{"title":"5. Operador de Dispersión","level":"1.5.5","depth":2,"path":"babel-es6-es7-y-es8/operador-de-dispersion.md","ref":"babel-es6-es7-y-es8/operador-de-dispersion.md","articles":[]},"previous":{"title":"3. Funciones Flecha","level":"1.5.3","depth":2,"path":"babel-es6-es7-y-es8/funciones-flecha.md","ref":"babel-es6-es7-y-es8/funciones-flecha.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","advanced-emoji"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/deconstrucciones.md","mtime":"2016-11-15T14:01:00.735Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-15T14:01:23.469Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4. Deconstrucciones","level":"1.5.4","depth":2,"next":{"title":"5. Operador de Dispersión","level":"1.5.5","depth":2,"path":"babel-es6-es7-y-es8/operador-de-dispersion.md","ref":"babel-es6-es7-y-es8/operador-de-dispersion.md","articles":[]},"previous":{"title":"3. Funciones Flecha","level":"1.5.3","depth":2,"path":"babel-es6-es7-y-es8/funciones-flecha.md","ref":"babel-es6-es7-y-es8/funciones-flecha.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"babel-es6-es7-y-es8/deconstrucciones.md","mtime":"2016-11-16T23:16:06.195Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-16T23:19:48.757Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -651,6 +655,18 @@ login(username, password)
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-js-console/console-ui.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-codetabs/codetabs.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
