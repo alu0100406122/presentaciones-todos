@@ -387,6 +387,129 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../edicion-de-video/conceptos-fotografia.html">
+            
+                <a href="../edicion-de-video/conceptos-fotografia.html">
+            
+                    
+                    1. Conceptos básicos de fotografía
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../edicion-de-video/conceptos-video.html">
+            
+                <a href="../edicion-de-video/conceptos-video.html">
+            
+                    
+                    2. Conceptos básicos de vídeo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../edicion-de-video/edicion.html">
+            
+                <a href="../edicion-de-video/edicion.html">
+            
+                    
+                    3. Edición
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../edicion-de-video/edicion-lineal.html">
+            
+                <a href="../edicion-de-video/edicion-lineal.html">
+            
+                    
+                    4. Edición lineal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../edicion-de-video/edicion-no-lineal.html">
+            
+                <a href="../edicion-de-video/edicion-no-lineal.html">
+            
+                    
+                    5. Edición no lineal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../edicion-de-video/procesado.html">
+            
+                <a href="../edicion-de-video/procesado.html">
+            
+                    
+                    6. Procesado
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../edicion-de-video/frozen.html">
+            
+                <a href="../edicion-de-video/frozen.html">
+            
+                    
+                    7. Frozen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../edicion-de-video/codecs.html">
+            
+                <a href="../edicion-de-video/codecs.html">
+            
+                    
+                    8. Códecs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../edicion-de-video/bibliografia.html">
+            
+                <a href="../edicion-de-video/bibliografia.html">
+            
+                    
+                    9. Bibliografía
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.10" data-path="../graphics/">
@@ -714,33 +837,33 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="8-qu&#xE9;-es-el-shady-dom">8. Qu&#xE9; es el Shady Dom</h1>
-<p>Como ya se coment&#xF3; anteriormente, el <a href="shadowDom.html">shadow Dom</a> es una de las caracter&#xED;sticas principales para la creaci&#xF3;n de web components pero, el uso del shadow dom si no se es un desarrollador experimentado es tedioso y complicado de usar. 
+<p>Como ya se coment&#xF3; anteriormente, el <a href="shadowDom.html">shadow Dom</a> es una de las caracter&#xED;sticas principales para la creaci&#xF3;n de web components pero, el uso del shadow dom si no se es un desarrollador experimentado es tedioso y complicado de usar.
 Polymer, adem&#xE1;s de trabajar con el shadow dom, tambi&#xE9;n permite trabajar con lo que se le denomina <strong>Shady DOM</strong>. El shady dom, permite acceder al arbol dom que se crea del componente de una manera m&#xE1;s facil que como se har&#xED;a utilizando el shadow dom.</p>
 <h2 id="uso-del-this">Uso del this.$</h2>
 <p>Para acceder a los elementos del DOM de el elemento creado s&#xF3;lo basta con acceder mediante la utilizaci&#xF3;n de la sentencia <code>this.$.identificador del elemento a acceder</code>. A continuaci&#xF3;n, se muestra un ejemplo pr&#xE1;ctico del uso del shady DOM</p>
 <pre><code class="lang-html"><span class="hljs-comment">&lt;!--starwars.html--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;import&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;bower_components/polymer/polymer.html&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">dom-module</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;star-wars&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;main&quot;</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>Luke Skywalker<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;description&quot;</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>especie:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;specie&quot;</span>&gt;</span>humana<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>planeta natal:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;homeworld&quot;</span>&gt;</span>Tatooine<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>ocupaci&#xF3;n:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;occupation&quot;</span>&gt;</span>maestro jedy<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
-    Polymer({
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;main&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>Luke Skywalker<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;description&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>especie:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;specie&quot;</span>&gt;</span>humana<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>planeta natal:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;homeworld&quot;</span>&gt;</span>Tatooine<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>ocupaci&#xF3;n:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;occupation&quot;</span>&gt;</span>maestro jedy<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+  Polymer({
     <span class="hljs-keyword">is</span>: <span class="hljs-string">&quot;star-wars&quot;</span>
-    });
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  });
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dom-module</span>&gt;</span>
 </code></pre>
 <p>Para acceder al elemento con id specie por ejemplo, habr&#xED;a que &#xE1;&#xF1;adir la siguiente sentencia</p>
-<pre><code class="lang-javascript">  nombrefuncion: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-    <span class="hljs-keyword">this</span>.$.specie.style.color=<span class="hljs-string">&quot;#123456&quot;</span>
+<pre><code class="lang-javascript">nombrefuncion: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.$.specie.style.color=<span class="hljs-string">&quot;#123456&quot;</span>
 }
 </code></pre>
 <p>Esto permitir&#xE1; de una manera simple acceder a cualquier nodo de nuestro elemento simplemente utilizando <code>this.$.id</code> , haciendo mucho m&#xE1;s f&#xE1;cil la modificaci&#xF3;n del nodo de nuestro elemento el arbol local que se crea.</p>
@@ -797,7 +920,7 @@ En esta ocasi&#xF3;n, si se quisiera utilizar la sentencia  <code>this.$.notes.s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8. Qué es el Shady Dom","level":"1.17.8","depth":2,"next":{"title":"9. API DOM Polymer","level":"1.17.9","depth":2,"path":"polymer/polymerDom.md","ref":"polymer/polymerDom.md","articles":[]},"previous":{"title":"7. Shadow DOM","level":"1.17.7","depth":2,"path":"polymer/shadowDom.md","ref":"polymer/shadowDom.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs-stage-0"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"es6tabs-stage-0":{"presets":["es2015","react"]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"polymer/shadyDom.md","mtime":"2016-11-23T21:27:47.234Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-23T21:52:07.318Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8. Qué es el Shady Dom","level":"1.17.8","depth":2,"next":{"title":"9. API DOM Polymer","level":"1.17.9","depth":2,"path":"polymer/polymerDom.md","ref":"polymer/polymerDom.md","articles":[]},"previous":{"title":"7. Shadow DOM","level":"1.17.7","depth":2,"path":"polymer/shadowDom.md","ref":"polymer/shadowDom.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs-stage-0"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"es6tabs-stage-0":{"presets":["es2015","react"]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"polymer/shadyDom.md","mtime":"2016-11-24T18:25:16.999Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-27T18:15:11.024Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

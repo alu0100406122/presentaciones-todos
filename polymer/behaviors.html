@@ -387,6 +387,129 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../edicion-de-video/conceptos-fotografia.html">
+            
+                <a href="../edicion-de-video/conceptos-fotografia.html">
+            
+                    
+                    1. Conceptos básicos de fotografía
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../edicion-de-video/conceptos-video.html">
+            
+                <a href="../edicion-de-video/conceptos-video.html">
+            
+                    
+                    2. Conceptos básicos de vídeo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../edicion-de-video/edicion.html">
+            
+                <a href="../edicion-de-video/edicion.html">
+            
+                    
+                    3. Edición
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../edicion-de-video/edicion-lineal.html">
+            
+                <a href="../edicion-de-video/edicion-lineal.html">
+            
+                    
+                    4. Edición lineal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../edicion-de-video/edicion-no-lineal.html">
+            
+                <a href="../edicion-de-video/edicion-no-lineal.html">
+            
+                    
+                    5. Edición no lineal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../edicion-de-video/procesado.html">
+            
+                <a href="../edicion-de-video/procesado.html">
+            
+                    
+                    6. Procesado
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../edicion-de-video/frozen.html">
+            
+                <a href="../edicion-de-video/frozen.html">
+            
+                    
+                    7. Frozen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../edicion-de-video/codecs.html">
+            
+                <a href="../edicion-de-video/codecs.html">
+            
+                    
+                    8. Códecs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../edicion-de-video/bibliografia.html">
+            
+                <a href="../edicion-de-video/bibliografia.html">
+            
+                    
+                    9. Bibliografía
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.10" data-path="../graphics/">
@@ -714,7 +837,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="10-qu&#xE9;-es-un-behavior">10. Qu&#xE9; es un behavior</h1>
-<p>Un behavior, es la manera de extender un custom element para compartir el c&#xF3;digo entre diferentes componentes de Polymer. Esta manera de compartir c&#xF3;digo permite a&#xF1;adir nuevas caracter&#xED;sticas al componente que se este desarrollando utilizando lo que otro desarrollador haya realizado en un componente totalmente distinto. 
+<p>Un behavior, es la manera de extender un custom element para compartir el c&#xF3;digo entre diferentes componentes de Polymer. Esta manera de compartir c&#xF3;digo permite a&#xF1;adir nuevas caracter&#xED;sticas al componente que se este desarrollando utilizando lo que otro desarrollador haya realizado en un componente totalmente distinto.
 Para a&#xF1;adir un behavior a un elemento que se est&#xE1; creando, se tiene que a&#xF1;adir las siguientes l&#xED;neas.</p>
 <pre><code class="lang-javascript">Polymer({
   is: <span class="hljs-string">&apos;nombreElemento&apos;</span>,
@@ -755,35 +878,33 @@ ValidadorBehavior = {
         dni: <span class="hljs-built_in">String</span>
       },
       saveUser: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-          <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.esName(<span class="hljs-keyword">this</span>.name) &amp;&amp; <span class="hljs-keyword">this</span>.esdni(<span class="hljs-keyword">this</span>.dni)) {
-              <span class="hljs-comment">//se comprueba el nombre y el DNI/NIE mediante los m&#xE9;todos del behavior</span>
-          }
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.esName(<span class="hljs-keyword">this</span>.name) &amp;&amp; <span class="hljs-keyword">this</span>.esdni(<span class="hljs-keyword">this</span>.dni)) {
+          <span class="hljs-comment">//se comprueba el nombre y el DNI/NIE mediante los m&#xE9;todos del behavior</span>
+        }
       }
     });
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dom-module</span>&gt;</span>
 </code></pre>
 <p>Adem&#xE1;s, aunque no se muestra en el ejemplo anterior,los behavior tambi&#xE9;n permiten a&#xF1;adir funciones de eventos listeners,observers, etc. s&#xF3;lo habr&#xED;a que a&#xF1;adir como funci&#xF3;n o como propiedad las siguientes l&#xED;neas.</p>
-<p>```html</p>
-<script>
-     HighlightBehavior = {
-
-      properties: {
-        isHighlighted: {
-          type: Boolean,
-          value: false,
-          notify: true,
-          observer: '_highlightChanged'                //se añade el evento como propiedad
-        }
-      },
-
-      //se añade el evento como función del behavior
-
-      listeners: {
-        click: '_toggleHighlight'
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> &gt;</span><span class="javascript">
+  HighlightBehavior = {
+    properties: {
+      isHighlighted: {
+        type: <span class="hljs-built_in">Boolean</span>,
+        value: <span class="hljs-literal">false</span>,
+        notify: <span class="hljs-literal">true</span>,
+        observer: <span class="hljs-string">&apos;_highlightChanged&apos;</span>  <span class="hljs-comment">//se a&#xF1;ade el evento como propiedad</span>
       }
-    };  
-</script>
+    },
+    <span class="hljs-comment">//se a&#xF1;ade el evento como funci&#xF3;n del behavior</span>
+    listeners: {
+      click: <span class="hljs-string">&apos;_toggleHighlight&apos;</span>
+    }
+  };
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+
                                 
                                 </section>
                             
@@ -826,7 +947,7 @@ ValidadorBehavior = {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"10. Qué es un behavior","level":"1.17.10","depth":2,"next":{"title":"11. Vulcanize o vulcanizado","level":"1.17.11","depth":2,"path":"polymer/vulcanize.md","ref":"polymer/vulcanize.md","articles":[]},"previous":{"title":"9. API DOM Polymer","level":"1.17.9","depth":2,"path":"polymer/polymerDom.md","ref":"polymer/polymerDom.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs-stage-0"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"es6tabs-stage-0":{"presets":["es2015","react"]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"polymer/behaviors.md","mtime":"2016-11-23T21:27:47.234Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-23T21:52:07.318Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"10. Qué es un behavior","level":"1.17.10","depth":2,"next":{"title":"11. Vulcanize o vulcanizado","level":"1.17.11","depth":2,"path":"polymer/vulcanize.md","ref":"polymer/vulcanize.md","articles":[]},"previous":{"title":"9. API DOM Polymer","level":"1.17.9","depth":2,"path":"polymer/polymerDom.md","ref":"polymer/polymerDom.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs-stage-0"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"es6tabs-stage-0":{"presets":["es2015","react"]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"polymer/behaviors.md","mtime":"2016-11-24T18:27:40.100Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-27T18:15:11.024Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
