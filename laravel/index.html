@@ -836,7 +836,78 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="laravel">Laravel</h1>
+                                <h1 id="laravel">LARAVEL</h1>
+<p>Laravel es un framework de c&#xF3;digo abierto para desarrollar aplicaciones y servicios web con PHP. Su filosof&#xED;a es desarrollar c&#xF3;digo PHP de forma elegante y simple, evitando el &quot;c&#xF3;digo espagueti&quot;. Fue creado en 2011 y tiene una gran influencia de frameworks como Ruby on Rails, Sinatra y ASP.NET MVC.</p>
+<h2 id="configuraci&#xF3;n-previa">Configuraci&#xF3;n previa</h2>
+<ul>
+<li>Tener un servidor web y composer</li>
+</ul>
+<p>1- En este tutorial utilizaremos XAMPP que es un paquete que permite levantar un servidor apache y utilizar bases de datos MySQL.</p>
+<p>Instalar <a href="https://www.apachefriends.org/es/download.html" target="_blank">XAMPP</a></p>
+<p><img src="images/xampp.jpg" alt=""></p>
+<p>2- Composer es una herramienta de administraci&#xF3;n de dependencias para PHP. Est&#xE1; altamente inspirado en el NPM de NODEJS o el Bundler de Ruby. Para instalar composer entramos en <a href="https://getcomposer.org/" target="_blank">https://getcomposer.org</a>, hacemos clic en Download e instalamos el paquete que corresponda a nuestro Sistema Operativo.</p>
+<p><img src="images/composer.jpg" alt=""></p>
+<p>Una vez realizada la configuraci&#xF3;n inicial podemos comenzar con la instalaci&#xF3;n de <a href="https://laravel.com/docs/" target="_blank">LARAVEL</a>. Para ello nos colocamos en c:\xampp\htdocs y ejecutamos el siguiente comando:</p>
+<p><img src="images/laravel.jpg" alt=""></p>
+<pre><code class="lang-bash">composer create-project --prefer-dist laravel/laravel nombre_proyecto
+</code></pre>
+<p>Por &#xFA;ltimo activamos nuestro servidor apache en XAMPP y si todo ha salido bien deber&#xED;amos poder entrar a nuestro sitio web Instalar <a href="localhost/nombre_proyecto/public">localhost/nombre_proyecto/public</a></p>
+<p>De forma opcional podemos acortar la URL a <a href="localhost:8000" target="_blank">localhost:8000</a> escribiendo el siguiente comando:</p>
+<pre><code class="lang-bash">php artisan serve
+</code></pre>
+<p><strong>Artisan</strong> es el nombre de la interfaz de l&#xED;nea de comandos incluida en Laravel. Provee comandos &#xFA;tiles para el desarrollo de tu aplicaci&#xF3;n. Est&#xE1; impulsada por el poderoso componente Console de Symfony.</p>
+<h2 id="c&#xF3;mo-funciona-laravel">C&#xF3;mo funciona LARAVEL</h2>
+<p><img src="images/mvc.jpg" alt=""></p>
+<h2 id="vistas">VISTAS</h2>
+<p>Se encuentran dentro del directorio <strong>resources/views</strong> , es el resultado final que se muestra en el navegador.</p>
+<h2 id="rutas">RUTAS</h2>
+<p>Se encuentran dentro del directorio <strong>routes</strong> , las rutas pueden retornar una vista aunque lo correcto es que llamen a un controlador y este sea quien retorne la vista o llame a un modelo, dependiendo si se realiza alguna petici&#xF3;n a una base de datos.</p>
+<p>*Ejemplo de rutas:</p>
+<pre><code class="lang-bash">Route::get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-function"><span class="hljs-title">function</span></span> () {
+    <span class="hljs-built_in">return</span> view(<span class="hljs-string">&apos;welcome&apos;</span>);
+});
+
+Route::get(<span class="hljs-string">&apos;/productos&apos;</span>, <span class="hljs-function"><span class="hljs-title">function</span></span> () {
+<span class="hljs-variable">$productos</span> = App\Productos::all();
+<span class="hljs-built_in">return</span> <span class="hljs-variable">$productos</span>;
+});
+
+Route::get(<span class="hljs-string">&apos;/nosotros&apos;</span>, <span class="hljs-string">&apos;PaginasController@nosotros&apos;</span>);
+</code></pre>
+<h2 id="controladores">CONTROLADORES</h2>
+<p>Se encuentran dentro del directorio <strong>app/Http/Controllers</strong></p>
+<p>*Ejemplo de un controlador:</p>
+<pre><code class="lang-bash">&lt;?php
+namespace App\Http\Controllers;
+use App\User;
+use App\Http\Controllers\Controller;
+class PaginasController extends Controller
+{
+    public <span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">nosotros</span></span>(){
+      <span class="hljs-variable">$nombre</span>=<span class="hljs-string">&apos;Merquis&apos;</span>;
+      <span class="hljs-built_in">return</span> view(<span class="hljs-string">&apos;nosotros&apos;</span>)-&gt;with([
+        <span class="hljs-string">&apos;nombre&apos;</span> =&gt;<span class="hljs-string">&apos;Merquis&apos;</span>,
+        <span class="hljs-string">&apos;apellido&apos;</span> =&gt; <span class="hljs-string">&apos;Cruz&apos;</span>]);
+    }
+
+}
+</code></pre>
+<h2 id="blade">BLADE</h2>
+<p><strong>Blade</strong> es el motor de plantillas de <strong>Laravel</strong> y permite desarrollar c&#xF3;digo de forma m&#xE1;s r&#xE1;pida y limpia.</p>
+<h2 id="migraciones">MIGRACIONES</h2>
+<p>Podr&#xED;amos decir que son un tipo de control de versiones para nuestra base de datos.
+&#xBF;C&#xF3;mo crear una migraci&#xF3;n?</p>
+<p>En este ejemplo creamos una tabla llamada productos.</p>
+<pre><code class="lang-bash">php artisan make:migration productos_migration --create productos
+
+php artisan migrate:install
+
+php artisan migrate
+
+php artisan make:model Productos
+</code></pre>
+<h2 id="eloquent">ELOQUENT</h2>
+<p><strong>Eloquent</strong> es el ORM que incluye Laravel para manejar de una forma f&#xE1;cil y sencilla los procesos correspondientes al manejo de bases de datos en nuestro proyecto, gracias a las funciones que provee podremos realizar complejas consultas y peticiones de base de datos sin escribir una sola l&#xED;nea de c&#xF3;digo SQL.</p>
 <ul>
 <li>Autor: <a href="https://github.com/alu0100536690" target="_blank">Merquis Jes&#xFA;s Cruz Veloz</a></li>
 <li>Fecha: 09/12/2016</li>
@@ -884,7 +955,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Laravel","level":"1.12","depth":1,"next":{"title":"Materialize","level":"1.13","depth":1,"path":"materialize/README.md","ref":"materialize/README.md","articles":[]},"previous":{"title":"Juegos en JS","level":"1.11","depth":1,"path":"juegos-en-js/README.md","ref":"juegos-en-js/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs-stage-0","livereload"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"livereload":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"es6tabs-stage-0":{"presets":["es2015","react"]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"laravel/README.md","mtime":"2016-11-23T10:22:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-30T10:08:49.571Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Laravel","level":"1.12","depth":1,"next":{"title":"Materialize","level":"1.13","depth":1,"path":"materialize/README.md","ref":"materialize/README.md","articles":[]},"previous":{"title":"Juegos en JS","level":"1.11","depth":1,"path":"juegos-en-js/README.md","ref":"juegos-en-js/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","collapsible-menu","js-console","youtube","codetabs","es6tabs-stage-0"],"license":"MIT","root":"./txt","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"youtube":{},"es6tabs":{"presets":["es2015","stage-0"]},"search":{},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"js-console":{},"highlight":{},"es6tabs-stage-0":{"presets":["es2015","react"]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"ghPages":"http://ULL-ESIT-SYTW-1617.github.io/presentaciones-todos","theme":"default","author":"ULL-ESIT-SYTW-1617","name":"presentaciones","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"repo":"https://github.com/ULL-ESIT-SYTW-1617/presentaciones-todos","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"presentaciones","language":"es","gitbook":"*","description":"Libro de las presentaciones de SYTW del curso 2016/17"},"file":{"path":"laravel/README.md","mtime":"2016-12-09T09:19:07.108Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-09T09:24:51.002Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -903,10 +974,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-codetabs/codetabs.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
